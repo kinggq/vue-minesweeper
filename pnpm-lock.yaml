@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -22,6 +22,9 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.17
     version: 1.1.17
+  '@iconify-json/mdi':
+    specifier: ^1.1.53
+    version: 1.1.53
   '@types/node':
     specifier: ^20.2.5
     version: 20.2.5
@@ -508,6 +511,12 @@ packages:
 
   /@iconify-json/carbon@1.1.17:
     resolution: {integrity: sha512-FJCHUNP+iEGZILqu5YjByV+RBrWCsMo7YWXBJSpRMvaeVH3yjK3TI8UIc7lmPGI1NRmjThiaqjxMqe7CgQY55Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi@1.1.53:
+    resolution: {integrity: sha512-qG72Tc9Bd4w7fha+kMEySVTbH4Obgb9xA1mQl+WReFhtZ3PjcVpIWLgZGTewuIfZY8RAbd8zfAqhZ7qEYZWrhg==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

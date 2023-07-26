@@ -31,26 +31,20 @@ function getBlockClass(block: BlockState) {
     border="1 gray-400/10"
     flex="~"
     m="0.5"
-    h-10
-    w-10
+    h-10 w-10
     items-center
     justify-center
     :class="getBlockClass(block)"
   >
     <template v-if="block.flagged">
-      <div
-        i-mdi:flag
-        text-red
-      />
+      <div i-mdi:flag text-red />
     </template>
+
     <template v-else-if="block.revealed || isDev">
-      <div
-        v-if="block.mine"
-        i-mdi:mine
-      >
+      <div v-if="block.mine" i-mdi:mine>
         x
       </div>
-      <div v-else>
+      <div v-else font-bold>
         {{ block.adjacentMines }}
       </div>
     </template>

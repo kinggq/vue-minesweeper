@@ -2,7 +2,8 @@
 import { GamePlay, isDev, toggleDev } from '~/composables'
 
 const play = new GamePlay(12, 12)
-const state = play.state
+useStorage('vue-sweeper', play.state)
+const state = computed(() => play.board)
 </script>
 
 <template>
@@ -11,35 +12,23 @@ const state = play.state
 
     <div p5>
       <div
-        v-for="(row, y) in state"
-        :key="y"
-        flex="~"
+        v-for="(row, y) in state" :key="y"
         items-center
-        justify-center
+        justify-center flex="~"
       >
         <MineBlock
-          v-for="(block, x) in row"
-          :key="x"
+          v-for="(block, x) in row" :key="x"
           :block="block"
           @click="play.onClick(block)"
           @contextmenu.prevent="play.onRightClick(block)"
         />
       </div>
     </div>
-    <div
-      flex="~ gap-1"
-      justify-center
-    >
-      <button
-        btn
-        @click="toggleDev()"
-      >
+    <div flex="~ gap-1" justify-center>
+      <button btn @click="toggleDev()">
         {{ isDev ? 'DEV' : 'NORMAL' }}
       </button>
-      <button
-        btn
-        @click="play.reset"
-      >
+      <button btn @click="play.reset">
         RESET
       </button>
     </div>

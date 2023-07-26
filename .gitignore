@@ -2,7 +2,6 @@
 .vite-ssg-dist
 .vite-ssg-temp
 *.local
-.github/
 dist
 dist-ssr
 node_modules

@@ -44,7 +44,7 @@ function getBlockClass(block: BlockState) {
       <div v-if="block.mine" i-mdi:mine>
         x
       </div>
-      <div v-else font-bold>
+      <div v-else font-600>
         {{ block.adjacentMines }}
       </div>
     </template>

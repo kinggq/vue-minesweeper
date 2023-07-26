@@ -141,9 +141,11 @@ export class GamePlay {
       if (blocks.some(block => block.flagged && !block.mine)) {
         this.showAllMine()
         this.state.value.gameState = 'lost'
+        alert('lost')
       }
       else {
         this.state.value.gameState = 'won'
+        alert('won')
       }
     }
   }

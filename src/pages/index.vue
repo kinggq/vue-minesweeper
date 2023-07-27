@@ -18,9 +18,11 @@ watchEffect(() => {
   <div>
     <div>Minesweeper</div>
 
-    <div p5>
+    <div w-full overflow-auto p5>
       <div
         v-for="(row, y) in state" :key="y"
+        ma
+        w-max
         items-center
         justify-center flex="~"
       >

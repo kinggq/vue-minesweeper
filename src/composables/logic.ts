@@ -47,6 +47,7 @@ export class GamePlay {
             x,
             y,
             adjacentMines: 0,
+            revealed: false,
           }),
         ),
       ),
@@ -57,19 +58,19 @@ export class GamePlay {
     if (block.adjacentMines)
       return
 
-    this.getSiblings(block).forEach((s) => {
-      if (!s.revealed) {
-        s.revealed = true
-        this.expendZero(s)
-      }
-    })
+    this.getSiblings(block)
+      .forEach((s) => {
+        if (!s.revealed) {
+          s.revealed = true
+          this.expendZero(s)
+        }
+      })
   }
 
   onClick(block: BlockState) {
     if (this.state.value.gameState !== 'play')
       return
-    if (block.flagged)
-      return
+
     if (!this.state.value.mineGenerated) {
       this.generateMines(this.board, block)
       this.state.value.mineGenerated = true
@@ -162,13 +163,11 @@ export class GamePlay {
     const blocks = this.board.flat()
     if (blocks.every(block => block.revealed || block.flagged)) {
       if (blocks.some(block => block.flagged && !block.mine)) {
-        this.showAllMine()
         this.state.value.gameState = 'lost'
-        alert('lost')
+        this.showAllMine()
       }
       else {
         this.state.value.gameState = 'won'
-        alert('won')
       }
     }
   }

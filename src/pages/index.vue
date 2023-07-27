@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { GamePlay, isDev, toggleDev } from '~/composables'
+import { isDev, toggleDev } from '~/composables'
+import { GamePlay } from '~/composables/logic'
 
-const play = new GamePlay(12, 12, 30)
+const play = new GamePlay(6, 6, 3)
 useStorage('vue-sweeper', play.state)
 const state = computed(() => play.board)
 
@@ -44,4 +45,5 @@ watchEffect(() => {
       </button>
     </div>
   </div>
+  <Confetti :passed="play.state.value.gameState === 'won'" />
 </template>
